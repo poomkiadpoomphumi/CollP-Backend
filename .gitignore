@@ -1,0 +1,30 @@
+#git remote add origin https://github.com/poomkiadpoomphumi/CollP-Backend.git
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories (vendor)
+vendor/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment files
+#.env
+#rsa.pem
+secret.png
