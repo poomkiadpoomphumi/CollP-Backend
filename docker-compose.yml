@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: collp_postgres
+    environment:
+      POSTGRES_USER: collp_user
+      POSTGRES_PASSWORD: collp_password
+      POSTGRES_DB: collp_backend
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - collp_network
+
+  # backend:
+  #   build: .
+  #   container_name: collp_backend
+  #   environment:
+  #     DB_HOST: postgres
+  #     DB_PORT: 5432
+  #     DB_USER: collp_user
+  #     DB_PASSWORD: collp_password
+  #     DB_NAME: collp_backend
+  #     PORT: 8080
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - collp_network
+  #   volumes:
+  #     - .:/app
+  #   working_dir: /app
+
+volumes:
+  postgres_data:
+
+networks:
+  collp_network:
+    driver: bridge

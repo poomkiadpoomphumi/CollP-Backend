@@ -1,12 +1,13 @@
-package controller
+package controllers
+
 import (
-	"collp-backend/usecase"
+	"collp-backend/services"
 	"encoding/json"
 	"net/http"
 )
 
 func MainMenu(w http.ResponseWriter, r *http.Request) {
-	menu := usecase.GetAllMainMenu()
+	menu := services.GetAllMainMenu()
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(menu)
 }
